@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -51,24 +53,36 @@ class MainActivity : ComponentActivity() {
 fun ProfileScreen(modifier: Modifier = Modifier){
     Box(Modifier.fillMaxSize()){
         ScreenBackground()
-        ProfileImage(Modifier.padding(start = 15.dp, bottom = 35.dp).size(120.dp, 120.dp).align(Alignment.TopStart).offset(y = 180.dp))
+        ProfileImage(Modifier.padding(start = 15.dp, bottom = 35.dp).size(120.dp, 120.dp).align(Alignment.TopStart).offset(y = 215.dp))
 
     }
 
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenBackground() {
     Column(Modifier.fillMaxSize()){
+        TopAppBar(
+            title = { Text("Profile") },
+            navigationIcon = {
+                IconButton(onClick = {}) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Back"
+                    )
+                }
+            }
+        )
         ProfileHeader(Modifier.align(Alignment.CenterHorizontally))
-        ProfileDetails(Modifier.fillMaxSize().padding(20.dp, 20.dp).clip(RoundedCornerShape(18)).background(Color.LightGray))
+        ProfileDetails(Modifier.fillMaxSize().padding(5.dp, 30.dp))
     }
 
 }
 
 @Composable
 fun ProfileHeader(modifier : Modifier = Modifier){
-    Box(Modifier.height(285.dp).fillMaxWidth().paint(painterResource(id = R.drawable.green_wavy_background), contentScale = ContentScale.FillBounds)){
+    Box(Modifier.height(250.dp).fillMaxWidth().paint(painterResource(id = R.drawable.green_wavy_background), contentScale = ContentScale.FillBounds)){
 
     }
 }
@@ -118,11 +132,11 @@ fun ProfileAvatarBody(modifier : Modifier = Modifier) {
 @Composable
 fun ProfileDetails(modifier : Modifier = Modifier){
     Column(modifier){
-        val generalModifier = Modifier.padding(15.dp)
+        val generalModifier = Modifier.padding(15.dp, 5.dp)
         val centerAlignedModifier = Modifier.align(Alignment.CenterHorizontally)
 
-        Text("UserName", fontSize = 40.sp, modifier = generalModifier.then(centerAlignedModifier))
-        Text("Description", fontSize = 30.sp, modifier = centerAlignedModifier)
+        Text("SarahCadet", fontSize = 40.sp, modifier = generalModifier)
+        Text("A Computer Science senior at Boston University", fontSize = 20.sp, modifier = generalModifier)
 
     }
 }
