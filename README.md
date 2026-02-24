@@ -5,6 +5,9 @@ This project showcases is a settings page that could be found on a social media 
 
 ## ScreenShots
 
+<img width="466" height="877" alt="image" src="https://github.com/user-attachments/assets/133cc70a-1d4c-41af-8741-bccccf27c08b" />
+
+<img width="522" height="900" alt="image" src="https://github.com/user-attachments/assets/0ea971e0-1e5a-448b-87cc-f3b2bb01ab4b" />
 
 
 ## AI Use
